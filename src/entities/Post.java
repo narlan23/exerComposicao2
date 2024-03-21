@@ -9,20 +9,19 @@ public class Post {
 	private Date momment;
 	private String title;
 	private String content;
-	private int likes;
+	private Integer likes;
 	
-	private List<Comment> comment = new ArrayList<>();
+	private List<Comment> comments = new ArrayList<>();
 
 	public Post() {
 		
 	}
 	
-	public Post(Date momment, String title, String content, int likes, List<Comment> comment) {
+	public Post(Date momment, String title, String content, int likes) {
 		this.momment = momment;
 		this.title = title;
 		this.content = content;
 		this.likes = likes;
-		this.comment = comment;
 	}
 
 	public Date getMomment() {
@@ -58,7 +57,21 @@ public class Post {
 	}
 
 	public List<Comment> getComment() {
-		return comment;
+		return comments;
+	}
+	
+	public void addComment(Comment comment) {
+		comments.add(comment);
+	}
+	
+	public void removeComment(Comment comment) {
+		comments.remove(comment);
+	}
+
+	@Override
+	public String toString() {
+		return "Post [momment=" + momment + ", title=" + title + ", content=" + content + ", likes=" + likes
+				+ ", comments=" + comments + "]";
 	}
 
 
